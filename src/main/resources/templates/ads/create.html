@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Advertisement</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/ads/create}" th:object="${ad}">
+
+
+    <label for="title">Title:</label>
+  <input name="title" id="title" th:field="*{title}">
+
+    <label for="description">Description:</label>
+  <input name="description" id="description" th:field="*{description}">
+
+  <input th:type="submit" th:value="'Add a new product'">
+
+</form>
+
+
+
+</body>
+</html>
