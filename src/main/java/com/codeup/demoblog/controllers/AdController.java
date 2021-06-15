@@ -1,5 +1,7 @@
-package com.codeup.demoblog;
+package com.codeup.demoblog.controllers;
 
+import com.codeup.demoblog.daos.AdRepository;
+import com.codeup.demoblog.models.Ad;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

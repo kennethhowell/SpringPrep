@@ -1,5 +1,6 @@
-package com.codeup.demoblog;
+package com.codeup.demoblog.daos;
 
+import com.codeup.demoblog.models.Ad;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AdRepository extends JpaRepository <Ad, Long>{
