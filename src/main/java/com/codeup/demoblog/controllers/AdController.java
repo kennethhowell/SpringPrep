@@ -1,5 +1,6 @@
 package com.codeup.demoblog.controllers;
 
+import com.codeup.demoblog.daos.AdCategoryRepository;
 import com.codeup.demoblog.daos.AdRepository;
 import com.codeup.demoblog.models.Ad;
 import org.springframework.stereotype.Controller;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AdController {
     private final AdRepository adDao;
+    private final AdCategoryRepository adCategoryDao;
 
-    public AdController(AdRepository adDao){
+    public AdController(AdRepository adDao, AdCategoryRepository adCategoryDao){
         this.adDao = adDao;
+        this.adCategoryDao = adCategoryDao;
     }
 
     @GetMapping("/ads")
@@ -28,6 +31,8 @@ public class AdController {
     public String createAd(Model model){
 
         model.addAttribute("ad", new Ad());
+        model.addAttribute("categories", adCategoryDao.findAll());
+
         return "ads/create";
     }
 

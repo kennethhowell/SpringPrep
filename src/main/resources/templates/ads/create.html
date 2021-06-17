@@ -8,7 +8,7 @@
 
 <div class="container">
 
-    <form action="/ads/create" method="post" th:object="${ad}">
+    <form th:action="@{/ads/create}" th:method="post" th:object="${ad}">
         Title:
         <input name="title" th:field="*{title}" />
         <br />
@@ -16,6 +16,28 @@
         <input name="description" th:field="*{description}"/>
         <br />
         <input type="submit" />
+
+<!--        <div id="categories" th:each="i : ${categories}">-->
+<!--            <label th:class="${'category' + i.getId()}">-->
+<!--                <input name="interests" type="checkbox" th:value="${i.getId()}" th:text="${i.getName()}"/>-->
+<!--            </label>-->
+
+<!--        </div>-->
+
+<!--        Idea One: The Select Path-->
+
+<!--        <select multiple="multiple" th:field="${ad.categories}" class="form-control">-->
+<!--            <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}"></option>-->
+<!--        </select>-->
+
+<!--        Idea Two: The Div Path -->
+
+        <div th:each="i : ${categories}">
+            <label th:class="${'category' + i.getId()}">
+                                <input name="interests" type="checkbox" th:field="*{categories}" th:value="${i.getId()}" th:text="${i.getName()}"/>
+            </label>
+        </div>
+
     </form>
 
 </div>
